@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.cache
+.env
+.DS_Store
+*.sws
+*.swo
+*.map
+yarn-error.log
