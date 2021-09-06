@@ -1,6 +1,6 @@
-import errorHandler from '../utils/errorHandler'
+const errorHandler = require('../utils/errorHandler')
 
-export const getCapeFearBridge = async (req, res) => {
+const getCapeFearBridge = async (req, res) => {
   try {
     // code
   } catch (err) {
@@ -8,10 +8,15 @@ export const getCapeFearBridge = async (req, res) => {
   }
 }
 
-export const getIsabellaHolmesBridge = async (req, res) => {
+const getIsabellaHolmesBridge = async (req, res) => {
   try {
     // code
   } catch (err) {
     errorHandler(err, res)
   }
+}
+
+module.exports = {
+  getCapeFearBridge,
+  getIsabellaHolmesBridge
 }

@@ -1,13 +1,13 @@
-import express from 'express'
+const express = require('express')
 
-import {
+const {
   getCapeFearBridge,
   getIsabellaHolmesBridge
-} from '../controllers/bridgesController'
+} = require('../controllers/bridgesController')
 
 const router = express.Router()
 
 router.get('/capefear', getCapeFearBridge)
 router.get('/isabella', getIsabellaHolmesBridge)
 
-export default router
+module.exports = router

@@ -1,4 +1,4 @@
-export default (err, res):void => {
+const errorHandler = (err, res) => {
   const response = {
     code: err.statusCode || 500,
     message: err.message || 'Something went wrong...'
@@ -8,3 +8,5 @@ export default (err, res):void => {
   res.json({ message: response.message })
   res.end()
 }
+
+module.exports = errorHandler
