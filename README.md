@@ -24,6 +24,7 @@ $ yarn start
 
 ```bash
 $ curl http://localhost:4000/capefear
+{"open": false}
 ```
 
 ### `GET` `/isabella`
@@ -31,4 +32,5 @@ $ curl http://localhost:4000/capefear
 
 ```bash
 $ curl http://localhost:4000/isabella
+{"open": true}
 ```
