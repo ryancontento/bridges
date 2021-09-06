@@ -29,9 +29,22 @@ const getCapeFearBridge = async (req, res) => {
 
 const getIsabellaHolmesBridge = async (req, res) => {
   try {
-    res.status(200).json({
-      open: false
+    const { ISABELLA_HOLMES_BRIDGE_USER_ID } = config()
+    const url = `/statuses/user_timeline`
+
+    const tweets = await twitter.get(url, {
+      user_id: ISABELLA_HOLMES_BRIDGE_USER_ID
     })
+
+    let bridgeStatus = false
+    let tweetIndex = 0
+    while (!bridgeStatus) {
+      // if bridgeStatus is `false`, check next tweet
+      bridgeStatus = parseTweet(tweets[tweetIndex])
+      tweetIndex++
+    }
+
+    res.status(200).json(bridgeStatus)
   } catch (err) {
     errorHandler(err, res)
   }
