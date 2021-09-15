@@ -11,7 +11,7 @@ React.useEffect(() => {
     setCapeFearData(res.json()) 
 
   fetchCapeFearData()
-  }, []); 
+  }}, []); 
 
 React.useEffect(() => {
   const fetchIsabelData = async () => {   
@@ -19,13 +19,13 @@ React.useEffect(() => {
     setIsabelData(res.json()) 
 
   fetchIsabelData()
-  },[]);
+  }}, []);
 
 
 return (
   <div>
     <h2>Cape Fear Memorial:</h2>
-      <div>{capeFearData}</div>
+    <div>{capeFearData}</div>
     <h2>Isabel Holmes:</h2>
       <div>{!isabelData? "Loading Isabel Holmes..." : isabelData}</div>
   </div>
