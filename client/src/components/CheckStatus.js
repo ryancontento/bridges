@@ -2,27 +2,33 @@
 import React from "react";
 
 function CheckStatus (props) {
-const [data, setData, data2, setData2] = React.useState(null);
+const [capeFearData, setCapeFearData] = React.useState(null);
+const [isabelData, setIsabelData] = React.useState(null);
 
-  React.useEffect((props) => {
-    fetch("http://localhost:4000/capefear",)
-      .then((res) => res.json())
-      .then((data) => setData(props.data.message));
+React.useEffect(() => {
+  const fetchCapeFearData = async () => {   
+    const res = await fetch("http://localhost:4000/capefear")
+    setCapeFearData(res.json()) 
+
+  fetchCapeFearData()
   }, []);
 
-  React.useEffect((props) => {
-    fetch("http://localhost:4000/isabella",)
-      .then((res) => res.json())
-      .then((data2) => setData2(data2.message));
+React.useEffect(() => {
+  const fetchIsabelData = async () => {   
+    const res = await fetch("http://localhost:4000/isabella")
+    setIsabelData(res.json()) 
+
+  fetchIsabelData()
   }, []);
 
-  return (
-    <div>
-      <h2>Cape Fear Memorial:</h2>
-        <div>{props.data}</div>
-      <h2>Isabel Holmes:</h2>
-        <div>{!data2 ? "Loading Isabel Holmes..." : data2}</div>
-    </div>
+
+return (
+  <div>
+    <h2>Cape Fear Memorial:</h2>
+      <div>{props.data}</div>
+    <h2>Isabel Holmes:</h2>
+      <div>{!data2 ? "Loading Isabel Holmes..." : data2}</div>
+  </div>
   );
 }
 
